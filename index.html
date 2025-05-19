@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script src="https://kit.fontawesome.com/a14ae32021.js" crossorigin="anonymous"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>This one is for my Varchhu</title>
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+#loveOverlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 9999;
+  text-align: center;
+  padding-top: 100px;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+.messageBox {
+  font-family: sans-serif;
+  animation: popUp 0.6s ease-out;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes popUp {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+#words {
+  text-align: center;
+}
+
+</style>
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments">/**</span><br />
+			<span class="space"/><span class="comments"> * THE CODE OF LOVE </span><br />
+			<span class="space"/><span class="comments"> */</span><br />
+			Hey my love;<br />
+			Do you remember the day we first met?;<br />
+			<span class="comments">// December 24th, 2024. </span><br />
+			Something quietly sparked that day;<br />
+			<span class="comments">// Your smile, your voice, your laugh </span><br />
+			And somehow, you etched yourself into my heart;<br />
+			<br />
+			As the days passed;<br />
+			Our connection grew — stronger, deeper, truer;<br />
+			What started as a spark became something I never expected;<br />
+			A journey from infatuation... to love;<br />
+			<br />
+			You've become my comfort, my peace, my home;<br />
+			I count the moments until I see you;<br />
+			<span class="comments">// Hopefully, very soon...</span><br />
+			But even from afar, our bond keeps growing;<br />
+			<br />
+			<br />
+			All I want to say is;<br />
+			From the moment you walked into my life, everything lit up;<br />
+			<br />
+			Will you make me the happiest person alive?;<br />
+			Will you be my girlfriend?; <br />
+			<br />
+			<span id="heartspan">
+			  <a href="#" onclick="showLoveMessage(event)"><i class="fas fa-heart" id="icon"></i></a>
+			</span>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					ShyLee FOREVER
+					<div id="elapseClock"></div>
+<div style="font-size:16px; margin-top:10px; color:#777;">Since May 19, 2025 at 2:30 AM EST</div>
+				</div>
+				<div id="loveu">
+					I LOVE YOU SO MUCH<br/>
+					<div class="signature">- Shaiyaan</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Fullscreen Overlay -->
+<div id="loveOverlay">
+  <div class="messageBox">
+    <h1>💘 You said YES! 💘</h1>
+    <p>My heart is doing somersaults right now 😭💕<br/> I can't wait to start this journey with you.</p>
+  </div>
+</div>
+
+<script type="text/javascript">
+function showLoveMessage(event) {
+  event.preventDefault();
+  document.getElementById('loveOverlay').style.display = 'block';
+  confetti({
+    particleCount: 150,
+    spread: 100,
+    origin: { y: 0.6 }
+  });
+}
+
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date(2025, 4, 19, 2, 30, 0); // new Date(YYYY, MM, DD, HH, MM, SS) — May 19, 2025 at 2:25 AM
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+</body>
+</html>
